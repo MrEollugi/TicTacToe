@@ -138,17 +138,17 @@ bool playGame() { // 드디어 게임의 실제 진행을 담당하는 함수
         }
 
         // 게임 종료 조건 체크
-        if (checkWin(board, PLAYER_X)) {
+        if (checkWin(board, PLAYER_X)) { // AI가 이겼는지 확인 후 종료
             printBoard(board);
             cout << "AI (X) wins!" << endl;
             break;
         }
-        if (checkWin(board, PLAYER_O)) {
+        if (checkWin(board, PLAYER_O)) { // 플레이어가 이겼는지 확인 후 종료
             printBoard(board);
             cout << "YOU WIN !!" << endl;
             break;
         }
-        if (isBoardFull(board)) {
+        if (isBoardFull(board)) { // 무승부인지 확인 후 종료
             printBoard(board);
             cout << " DRAW ! " << endl;
             break;
@@ -162,14 +162,14 @@ bool playGame() { // 드디어 게임의 실제 진행을 담당하는 함수
     char playAgain;
     cout << "Try Again ? (Y/N): ";
     cin >> playAgain;
-    return (playAgain == 'Y' || playAgain == 'y');
+    return (playAgain == 'Y' || playAgain == 'y'); // Y 또는 y를 입력받으면 재시작하고 그 외의 입력을 받으면 게임 종료
 }
 
 int main() {
     // 게임 반복 실행
-    do {
+    do { // do-while 반복문으로 최소한 한번은 실행되게 설정, 이후 true 조건을 사용해 게임이 반복될 수 있도록 함.
         if (!playGame()) {
-            cout << "Thanks for playing!" << endl;
+            cout << "Thanks for playing!" << endl; // 재시작하지 않을 경우 감사 메시지 출력 후 break로 종료
             break;
         }
     } while (true);
