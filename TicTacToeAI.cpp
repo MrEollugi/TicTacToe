@@ -38,19 +38,19 @@ bool isValidMove(const vector<vector<char>>& board, int row, int col) {
 }
 
 // 승리 체크 함수
-bool checkWin(const vector<vector<char>>& board, char player) {
+bool checkWin(const vector<vector<char>>& board, char player) { // 현재 게임 보드의 상태를 참조 받으며 const를 이용해 보드의 내용은 변경하지 않도록 함, char player는 승리 여부를 확인하려는 플레이어
     // 가로, 세로, 대각선 체크
     for (int i = 0; i < 3; i++) {
-        if (board[i][0] == player && board[i][1] == player && board[i][2] == player)
+        if (board[i][0] == player && board[i][1] == player && board[i][2] == player) // 이게 가로 확인
             return true;
-        if (board[0][i] == player && board[1][i] == player && board[2][i] == player)
+        if (board[0][i] == player && board[1][i] == player && board[2][i] == player) // 이게 세로 확인
             return true;
     }
-    if (board[0][0] == player && board[1][1] == player && board[2][2] == player)
+    if (board[0][0] == player && board[1][1] == player && board[2][2] == player) // 대각선 왼쪽 상단에서 오른쪽 하단
         return true;
-    if (board[0][2] == player && board[1][1] == player && board[2][0] == player)
+    if (board[0][2] == player && board[1][1] == player && board[2][0] == player) // 대각선 오른쪽 상단에서 왼쪽 하단
         return true;
-    return false;
+    return false; // 충족 못하면 false 리턴
 }
 
 // 보드가 가득 찼는지 확인하는 함수
