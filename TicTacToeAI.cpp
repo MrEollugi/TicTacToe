@@ -85,7 +85,7 @@ int minimax(vector<vector<char>>& board, int depth, bool isMaximizing) { //위�
 }
 
 // AI가 최적의 수를 선택하는 함수
-pair<int, int> findBestMove(vector<vector<char>>& board) {
+pair<int, int> findBestMove(vector<vector<char>>& board) { // 최적의 수에 해당하는 (행, 열)을 리턴할 수 있도록 pair<int, int> 자료형을 사용해 선언
     int bestVal = INT_MIN;
     pair<int, int> bestMove = { -1, -1 };
 
