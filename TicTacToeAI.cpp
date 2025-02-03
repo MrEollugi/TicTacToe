@@ -81,7 +81,7 @@ int minimax(vector<vector<char>>& board, int depth, bool isMaximizing) { //위�
             }
         }
     }
-    return best;
+    return best; // 모든 이동 탐색 후 최적의 평가값을 리턴, 이 값은 현재 상태에서 최선의 선택을 평가한 값, AI가 할 수 있는 최고의 수를 결정하는데 사용된다.
 }
 
 // AI가 최적의 수를 선택하는 함수
