@@ -54,9 +54,9 @@ bool checkWin(const vector<vector<char>>& board, char player) { // 위와 같이
 }
 
 // 보드가 가득 찼는지 확인하는 함수
-bool isBoardFull(const vector<vector<char>>& board) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+bool isBoardFull(const vector<vector<char>>& board) { // 위와 같음
+    for (int i = 0; i < 3; i++) {  // i는 행 확인
+        for (int j = 0; j < 3; j++) { // j는 열 확인
             if (board[i][j] == EMPTY) return false;
         }
     }
