@@ -87,17 +87,17 @@ int minimax(vector<vector<char>>& board, int depth, bool isMaximizing) { //위�
 // AI가 최적의 수를 선택하는 함수
 pair<int, int> findBestMove(vector<vector<char>>& board) { // 최적의 수에 해당하는 (행, 열)을 리턴할 수 있도록 pair<int, int> 자료형을 사용해 선언, 당연히 보드 상태를 참조하고 수정할 수 있게 함
     int bestVal = INT_MIN; // 모든 수에 대한 최고의 평가값 추적, 최소값에서 시작해 점차 더 높은 값을 찾기위해 이 값을 갱신해 갈 예정
-    pair<int, int> bestMove = { -1, -1 }; //최적의 수 위치를 저장하는 변수
+    pair<int, int> bestMove = { -1, -1 }; //최적의 수 위치를 저장하는 변수 초기값은 -1로 설정
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) { // 이중 for문으로 보드 각 칸을 순차적으로 확인, 위와 같이 i는 행 j는 열.
         for (int j = 0; j < 3; j++) {
-            if (board[i][j] == EMPTY) {
+            if (board[i][j] == EMPTY) { // 현재 칸이 비었으면 AI가 그 칸에 둔 후 결과를 평가
                 board[i][j] = PLAYER_X;
-                int moveVal = minimax(board, 0, false);
+                int moveVal = minimax(board, 0, false); // minimax알고리즘 호출 AI가 해당 칸에 둔 후 다음 턴(플레이어)에 대한 평가 값을 계산, 0은 깊이, 플레이어 차례는 false로 설정해 플레이어가 최선의 선택을 하도록 함.
                 board[i][j] = EMPTY;
 
-                if (moveVal > bestVal) {
-                    bestMove = { i, j };
+                if (moveVal > bestVal) { // moveVal은 현재 이동에 대한 평가값 만약 현재 이동에 대한 평가값이 bestVal보다 크다면 이 수가 최선의 수라는 의미가 됨으로, bestMove를 이 위치로 갱신하고 bestVal을 새 평가값으로 갱신.
+                    bestMove = { i, j }; 
                     bestVal = moveVal;
                 }
             }
