@@ -26,15 +26,15 @@ void printBoard(const vector<vector<char>>& board) { // 2차원 벡터로 각 �
 
 // 유효한 입력을 받기 위한 함수
 bool isValidMove(const vector<vector<char>>& board, int row, int col) {
-    if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+    if (row < 0 || row >= 3 || col < 0 || col >= 3) { // 사용자가 입력한 row와 col이 유효한 범위 내에 있는지 확인하는 조건문
         cout << "Invalid input! Please enter row and column between 0 and 2." << endl;
         return false;
     }
-    if (board[row][col] != EMPTY) {
+    if (board[row][col] != EMPTY) { // 그리고 이건 사용자가 선택한 위치가 이미 채워져 있는지 확인하는 조건문
         cout << "Invalid move! This position is already occupied." << endl;
         return false;
     }
-    return true;
+    return true; // 다 통과하면 true를 리턴
 }
 
 // 승리 체크 함수
