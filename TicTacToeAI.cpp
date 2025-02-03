@@ -108,7 +108,7 @@ pair<int, int> findBestMove(vector<vector<char>>& board) { // 최적의 수에 �
 }
 
 // 게임 진행
-bool playGame() {
+bool playGame() { // 드디어 게임의 실제 진행을 담당하는 함수
     vector<vector<char>> board(3, vector<char>(3, EMPTY));
     bool playerTurn = false;  // False = Player O's turn, True = AI X's turn
     int row, col;
