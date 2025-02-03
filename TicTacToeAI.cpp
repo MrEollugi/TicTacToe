@@ -9,7 +9,7 @@ const char PLAYER_O = 'O';
 const char EMPTY = ' ';
 
 // 보드 출력 함수
-void printBoard(const vector<vector<char>>& board) { // 2차원 벡터로 각 요소가 다른 vector<char>인 구조로 생성, 벡터 내에 벡터가 있는 형태로 행렬 또는 2D 배열처럼 사용 가능
+void printBoard(const vector<vector<char>>& board) { // 2차원 벡터로 각 요소가 다른 vector<char>인 구조로 생성, 벡터 내에 벡터가 있는 형태로 행렬 또는 2D 배열처럼 사용 가능, & 참조자를 사용해 board의 복사본을 만들지 않고 원본 데이터를 참조해 성능을 최적화함
     cout << endl; // 빈 줄을 출력해 보드가 시작되는 부분과 이전 출력 사이에 간격을 생성
     for (int i = 0; i < 3; i++) { // 각행 출력
         for (int j = 0; j < 3; j++) { // 각 열 출력
