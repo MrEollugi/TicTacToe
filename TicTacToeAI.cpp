@@ -21,7 +21,7 @@ void printBoard(const vector<vector<char>>& board) {
             cout << "---|---|---" << endl; // 가로 구분선
         }
     }
-    cout << endl;
+    cout << endl; // 빈 줄을 출력해 보드가 시작되는 부분과 이전 출력 사이에 간격을 생성
 }
 
 // 유효한 입력을 받기 위한 함수
