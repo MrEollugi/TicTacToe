@@ -69,13 +69,13 @@ int minimax(vector<vector<char>>& board, int depth, bool isMaximizing) { //위�
     if (checkWin(board, PLAYER_O)) return depth - 10; // 플레이어가 승리할 경우
     if (isBoardFull(board)) return 0; // 보드가 가득차 무승부
 
-    int best = isMaximizing ? INT_MIN : INT_MAX;
+    int best = isMaximizing ? INT_MIN : INT_MAX; // 현재 상태에서의 최적의 평가값을 best에 저장
 
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (board[i][j] == EMPTY) {
+        for (int j = 0; j < 3; j++) { // i, j는 보드의 각 칸을 확인하는 변수
+            if (board[i][j] == EMPTY) { // 만약 빈칸이면 그 칸에 현재 차례인 대상의 기호를 놓고 다음 턴 계산을 위해 minimax를 재귀호출
                 board[i][j] = isMaximizing ? PLAYER_X : PLAYER_O;
-                int current = minimax(board, depth + 1, !isMaximizing);
+                int current = minimax(board, depth + 1, !isMaximizing); // depth를 1만큼 증가, 다음 수를 탐색
                 best = isMaximizing ? max(best, current) : min(best, current);
                 board[i][j] = EMPTY;
             }
