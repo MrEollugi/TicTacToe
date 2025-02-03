@@ -11,10 +11,10 @@ const char EMPTY = ' ';
 // 보드 출력 함수
 void printBoard(const vector<vector<char>>& board) {
     cout << endl; // 빈 줄을 출력해 보드가 시작되는 부분과 이전 출력 사이에 간격을 생성
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < 3; i++) { // 각행 출력
+        for (int j = 0; j < 3; j++) { // 각 열 출력
             cout << " " << board[i][j] << " ";
-            if (j < 2) cout << "|"; // 셀 구분선
+            if (j < 2) cout << "|"; // 셀 구분선 추가
         }
         cout << endl;
         if (i < 2) {
