@@ -109,17 +109,17 @@ pair<int, int> findBestMove(vector<vector<char>>& board) { // 최적의 수에 �
 
 // 게임 진행
 bool playGame() { // 드디어 게임의 실제 진행을 담당하는 함수
-    vector<vector<char>> board(3, vector<char>(3, EMPTY));
-    bool playerTurn = false;  // False = Player O's turn, True = AI X's turn
+    vector<vector<char>> board(3, vector<char>(3, EMPTY)); // 보드를 빈칸으로 초기화
+    bool playerTurn = false;  // 플레이어 턴과 AI턴을 구분하는 변수 false면 플레이어 true면 AI 이를 수정해 누가 먼저 턴을 시작할지 결정할 수 있다.
     int row, col;
 
-    while (true) {
-        printBoard(board);
+    while (true) { // 게임이 끝날 때까지 계속해서 실행된다.
+        printBoard(board); // 매턴마다 보드를 출력
 
         if (playerTurn) {
             // AI 턴
             cout << "AI's turn (X)" << endl;
-            pair<int, int> bestMove = findBestMove(board);
+            pair<int, int> bestMove = findBestMove(board); // findBestMove(board)를 호출해 AI가 최선의 수를 두도록 함
             row = bestMove.first;
             col = bestMove.second;
             board[row][col] = PLAYER_X;
@@ -127,14 +127,14 @@ bool playGame() { // 드디어 게임의 실제 진행을 담당하는 함수
         else {
             // 플레이어 턴
             cout << "Player's turn (O). Enter row and column (0-2): ";
-            cin >> row >> col;
+            cin >> row >> col; // 사용자로부터 행과 열을 입력받기
 
-            if (board[row][col] != EMPTY) {
+            if (board[row][col] != EMPTY) { // 해당 칸에 이미 돌이 있으면 알려주고 다시 입력받기
                 cout << "Invalid move! Try again." << endl;
                 continue;
             }
 
-            board[row][col] = PLAYER_O;
+            board[row][col] = PLAYER_O; // 해당 칸에 돌 배치
         }
 
         // 게임 종료 조건 체크
