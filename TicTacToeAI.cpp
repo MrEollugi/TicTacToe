@@ -75,8 +75,8 @@ int minimax(vector<vector<char>>& board, int depth, bool isMaximizing) { //위�
         for (int j = 0; j < 3; j++) { // i, j는 보드의 각 칸을 확인하는 변수
             if (board[i][j] == EMPTY) { // 만약 빈칸이면 그 칸에 현재 차례인 대상의 기호를 놓고 다음 턴 계산을 위해 minimax를 재귀호출
                 board[i][j] = isMaximizing ? PLAYER_X : PLAYER_O;
-                int current = minimax(board, depth + 1, !isMaximizing); // depth를 1만큼 증가, 다음 수를 탐색
-                best = isMaximizing ? max(best, current) : min(best, current);
+                int current = minimax(board, depth + 1, !isMaximizing); // depth를 1만큼 증가, 게임트리 다음 레벨로 내려가 다음 수를 탐색, 차례가 바꼈으니 isMaximizing을 !사용으로 반전
+                best = isMaximizing ? max(best, current) : min(best, current); // AI차례일 경우 max(best, current)를 사용해 가장 큰 값 찾기, 플레이어 차례일 경우 min(best, current)를 사용해 가장 작은 값 찾기
                 board[i][j] = EMPTY;
             }
         }
