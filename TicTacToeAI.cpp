@@ -10,7 +10,7 @@ const char EMPTY = ' ';
 
 // 보드 출력 함수
 void printBoard(const vector<vector<char>>& board) {
-    cout << endl;
+    cout << endl; // 빈 줄을 출력해 보드가 시작되는 부분과 이전 출력 사이에 간격을 생성
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             cout << " " << board[i][j] << " ";
@@ -21,7 +21,7 @@ void printBoard(const vector<vector<char>>& board) {
             cout << "---|---|---" << endl; // 가로 구분선
         }
     }
-    cout << endl; // 빈 줄을 출력해 보드가 시작되는 부분과 이전 출력 사이에 간격을 생성
+    cout << endl; 
 }
 
 // 유효한 입력을 받기 위한 함수
