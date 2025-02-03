@@ -65,9 +65,9 @@ bool isBoardFull(const vector<vector<char>>& board) { // 위와 같음
 
 // Minimax 알고리즘으로 AI가 최적의 수를 찾는 함수(이 함수는 현재 게임보드의 상태에 대한 평가값을 리턴해야 하고 평가값은 10 - depth, depth - 10, 또는 0이 될 수 있으므로 int로 선언)
 int minimax(vector<vector<char>>& board, int depth, bool isMaximizing) { //위와 같고, 현재 게임 트리의 깊이로 게임 진행 정도를 표시 보통은 0으로 시작함, 현재 차례가 누구 차례인지 true면 AI, false면 플레이어
-    if (checkWin(board, PLAYER_X)) return 10 - depth;
-    if (checkWin(board, PLAYER_O)) return depth - 10;
-    if (isBoardFull(board)) return 0;
+    if (checkWin(board, PLAYER_X)) return 10 - depth; // ai가 승리할 경우
+    if (checkWin(board, PLAYER_O)) return depth - 10; // 플레이어가 승리할 경우
+    if (isBoardFull(board)) return 0; // 보드가 가득차 무승부
 
     int best = isMaximizing ? INT_MIN : INT_MAX;
 
