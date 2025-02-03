@@ -25,7 +25,7 @@ void printBoard(const vector<vector<char>>& board) { // 2차원 벡터로 각 �
 }
 
 // 유효한 입력을 받기 위한 함수
-bool isValidMove(const vector<vector<char>>& board, int row, int col) {
+bool isValidMove(const vector<vector<char>>& board, int row, int col) { // 현재 게임 보드의 상태를 참조 받으며 const를 이용해 보드의 내용은 변경하지 않도록 함.
     if (row < 0 || row >= 3 || col < 0 || col >= 3) { // 사용자가 입력한 row와 col이 유효한 범위 내에 있는지 확인하는 조건문
         cout << "Invalid input! Please enter row and column between 0 and 2." << endl;
         return false;
@@ -38,7 +38,7 @@ bool isValidMove(const vector<vector<char>>& board, int row, int col) {
 }
 
 // 승리 체크 함수
-bool checkWin(const vector<vector<char>>& board, char player) { // 현재 게임 보드의 상태를 참조 받으며 const를 이용해 보드의 내용은 변경하지 않도록 함, char player는 승리 여부를 확인하려는 플레이어
+bool checkWin(const vector<vector<char>>& board, char player) { // 위와 같이 현재 게임 보드 상태 참조하고 const로 변경하지 않도록, char player는 승리 여부를 확인하려는 플레이어
     // 가로, 세로, 대각선 체크
     for (int i = 0; i < 3; i++) {
         if (board[i][0] == player && board[i][1] == player && board[i][2] == player) // 이게 가로 확인
